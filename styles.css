@@ -1,0 +1,154 @@
+/* Styling dasar */
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #000;
+    overflow: hidden;
+}
+
+/* Efek Bima Sakti (kabut di latar belakang) */
+.milky-way {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.01));
+    filter: blur(20px);
+    opacity: 0.3;
+    animation: rotateMilkyWay 60s linear infinite;
+}
+
+@keyframes rotateMilkyWay {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Bintang latar belakang */
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background-color: white;
+    border-radius: 50%;
+    animation: twinkle 2s infinite alternate;
+}
+
+/* Animasi kelap-kelip bintang */
+@keyframes twinkle {
+    0% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Bintang jatuh */
+.falling-star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+    animation: fall 3s linear infinite;
+}
+
+/* Animasi bintang jatuh */
+@keyframes fall {
+    0% {
+        transform: translateY(0) translateX(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(200vh) translateX(100vw);
+        opacity: 0;
+    }
+}
+
+/* Container orbit */
+.orbit-container {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    border: 1px dashed rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    animation: rotate 20s linear infinite;
+}
+
+/* Matahari di pusat orbit dengan ukuran lebih besar */
+.sun {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    margin-top: -40px;
+    margin-left: -40px;
+    background-color: yellow;
+    border-radius: 50%;
+    box-shadow: 0 0 30px rgba(255, 255, 0, 0.8);
+}
+
+/* Planet yang mengorbit */
+.planet {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: cyan;
+    border-radius: 50%;
+    transform-origin: -150px;
+}
+
+/* Planet tambahan */
+.planet-1 {
+    background-color: cyan;
+    animation: orbit 5s linear infinite;
+    transform-origin: -180px;
+}
+
+.planet-2 {
+    background-color: lightgreen;
+    animation: orbit 8s linear infinite;
+    transform-origin: -120px;
+}
+
+.planet-3 {
+    background-color: orange;
+    animation: orbit 12s linear infinite;
+    transform-origin: -70px;
+}
+
+/* Animasi rotasi planet mengelilingi orbit */
+@keyframes orbit {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Animasi rotasi orbit secara keseluruhan */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
